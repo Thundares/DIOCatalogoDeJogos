@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CatalogoDeJogos.InputModel;
+using CatalogoDeJogos.ViewModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,27 +15,27 @@ namespace CatalogoDeJogos.Controllers.V1
     {
         //visualizar--------------
         [HttpGet]
-        public async Task<ActionResult<List<object>>> Obter()
+        public async Task<ActionResult<List<JogoViewModel>>> Obter()
         {
-            return Ok();
+            return Ok(); 
         }
 
         [HttpGet("{idJogo:guid}")]
-        public async Task<ActionResult<List<object>>> Obter(Guid idJogo)
+        public async Task<ActionResult<List<JogoViewModel>>> Obter(Guid idJogo)
         {
             return Ok();
         }
 
         //inserir-----------------
         [HttpPost]
-        public async Task<ActionResult<object>> InserirJogo()
+        public async Task<ActionResult<JogoViewModel>> InserirJogo(JogoInputModel jogo)
         {
             return Ok();
         }
 
         //update------------------
         [HttpPut("{idJogo:guid}")]
-        public async Task<ActionResult> AtualizarJogo(Guid idJogo, object jogo)
+        public async Task<ActionResult> AtualizarJogo(Guid idJogo, JogoInputModel jogo)
         {
             return Ok();
         }
