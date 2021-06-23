@@ -11,7 +11,7 @@ namespace CatalogoDeJogos.Controllers.V1
     [ApiController]
     public class Jogos : ControllerBase
     {
-
+        //visualizar--------------
         [HttpGet]
         public async Task<ActionResult<List<object>>> Obter()
         {
@@ -24,14 +24,14 @@ namespace CatalogoDeJogos.Controllers.V1
             return Ok();
         }
 
-        // inserir
+        //inserir-----------------
         [HttpPost]
         public async Task<ActionResult<object>> InserirJogo()
         {
             return Ok();
         }
 
-        //update
+        //update------------------
         [HttpPut("{idJogo:guid}")]
         public async Task<ActionResult> AtualizarJogo(Guid idJogo, object jogo)
         {
@@ -44,6 +44,7 @@ namespace CatalogoDeJogos.Controllers.V1
             return Ok();
         }
 
+        //deletar----------------
         [HttpDelete("{idJogo:guid}")]
         public async Task<ActionResult> DeletarJogo(Guid idJogo) 
         {
