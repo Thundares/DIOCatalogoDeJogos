@@ -54,7 +54,7 @@ namespace CatalogoDeJogos.Services
         {
             var entidadeJogo = await _jogoRepository.Obter(jogo.nome, jogo.produtora);
 
-            if (entidadeJogo.Count == 0) 
+            if (entidadeJogo.Count > 0) 
             {
                 throw new JogoJaCadastradoException();
             }
@@ -81,6 +81,11 @@ namespace CatalogoDeJogos.Services
         public async Task<List<JogoViewModel>> Obter(int pagina, int quantidade)
         {
             var jogos = await _jogoRepository.Obter(pagina, quantidade);
+
+            if (jogos == null) 
+            {
+                throw new JogoNaoCadastradoException();
+            }
 
             return jogos.Select(jogo => new JogoViewModel
             {

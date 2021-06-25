@@ -1,4 +1,5 @@
-﻿using CatalogoDeJogos.InputModel;
+﻿using CatalogoDeJogos.Exceptions;
+using CatalogoDeJogos.InputModel;
 using CatalogoDeJogos.Services;
 using CatalogoDeJogos.ViewModel;
 using Microsoft.AspNetCore.Http;
@@ -87,7 +88,7 @@ namespace CatalogoDeJogos.Controllers.V1
                 await _jogoService.Atualizar(idJogo, preco);
                 return Ok();
             }
-            catch (Exception ex)
+            catch (JogoNaoCadastradoException ex)
             {
                 return NotFound("Jogo não encontrado");
             }
@@ -102,7 +103,7 @@ namespace CatalogoDeJogos.Controllers.V1
                 await _jogoService.Remover(idJogo);
                 return Ok();
             }
-            catch (Exception ex)
+            catch (JogoNaoCadastradoException ex)
             {
                 return NotFound("Jogo não encontrado");
             }
