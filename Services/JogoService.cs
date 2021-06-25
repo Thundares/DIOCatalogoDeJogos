@@ -1,4 +1,5 @@
 ﻿using CatalogoDeJogos.Entities;
+using CatalogoDeJogos.Exceptions;
 using CatalogoDeJogos.InputModel;
 using CatalogoDeJogos.Repositories;
 using CatalogoDeJogos.ViewModel;
@@ -14,7 +15,7 @@ namespace CatalogoDeJogos.Services
 
         private readonly IJogoRepository _jogoRepository;
 
-        public JogoService(IJogoService jogoRepo) 
+        public JogoService(IJogoRepository jogoRepo) 
         {
             _jogoRepository = jogoRepo;
         }
@@ -25,7 +26,7 @@ namespace CatalogoDeJogos.Services
 
             if (entidadeJogo == null) 
             {
-                throw new JogoNadoCadastradoException();
+                throw new JogoNaoCadastradoException();
             }
 
             entidadeJogo.nome = jogo.nome;
@@ -122,7 +123,7 @@ namespace CatalogoDeJogos.Services
 
         public void Dispose() 
         {
-            _jogoRepository.Dispose();
+            _jogoRepository?.Dispose();
         }
     }
 }
