@@ -1,4 +1,5 @@
 ﻿using CatalogoDeJogos.Entities;
+using CatalogoDeJogos.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +38,7 @@ namespace CatalogoDeJogos.Repositories
         {
             if (!jogos.ContainsKey(id)) 
             {
-                return null;
+                throw new JogoNaoCadastradoException();
             }
 
             return Task.FromResult(jogos[id]);
