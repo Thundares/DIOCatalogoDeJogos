@@ -9,7 +9,7 @@ It was written to work with sqlServer, but it has no connection string in appSet
 It need to be changed to adapt to your database.
 
 ### Game Class
-(Guid)id          = Primary Key
-(string)nome      = Name of the game
-(string)produtora = Name of the company that has created the game.
-(double)preco     = It is how much it cost.
+(Guid)id          = Primary Key<br/>
+(string)nome      = Name of the game<br/>
+(string)produtora = Name of the company that has created the game.<br/>
+(double)preco     = It is how much it cost.<br/>
