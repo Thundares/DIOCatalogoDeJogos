@@ -29,7 +29,7 @@ namespace CatalogoDeJogos
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IJogoService, JogoService>();
-            services.AddScoped<IJogoRepository, JogoRepository>();
+            services.AddScoped<IJogoRepository, DBRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
